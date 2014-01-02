@@ -1,0 +1,18 @@
+<div class="row marketing">
+  <table>
+    <% @project.tasks.in_groups_of(2, false) do |row_task| %>
+      <tr>
+        <% for task in row_task %>
+          <td>
+            <div class="task-list">
+              <h4><%= task.title %></h4>
+              <p><%= task.description %><p>
+              <small><%= link_to "Edit", edit_project_task_path(task.project, task) %></small>
+              <small><%= link_to "Remove", [task.project, task], method: :delete, data: { confirm: "Are you sure?"} %></small>
+            </div>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

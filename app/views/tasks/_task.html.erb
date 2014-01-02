@@ -1,0 +1,13 @@
+<div class="row marketing">
+  <table>
+    <tr>
+      <td>
+        <div class="task-list">
+          <h4><%= task.title %></h4>
+          <p><%= task.description %></p>
+          <small><%= link_to "Remove Task", [task.project, task], method: :delete, data: { confirm: 'Are you sure?' } %></small>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

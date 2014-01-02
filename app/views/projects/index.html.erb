@@ -1,0 +1,21 @@
+<div class="jumbotron">
+  <h1>Projects Manager</h1>
+  <%= render "project" %>
+</div>
+<div class="row marketing">
+  <table>
+    <% @projects.in_groups_of(2, false) do |row_project| %>
+      <tr>
+        <% for project in row_project %>
+          <td>
+            <div class="project-list">
+              <h4><%=link_to project.title, project_path(project) %></h4>
+              <small><%= link_to "Edit", edit_project_path(project) %></small>
+              <small><%= link_to "Remove", project_path(project), method: :delete, data: { confirm: "Are you sure?"} %></small>
+            </div>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

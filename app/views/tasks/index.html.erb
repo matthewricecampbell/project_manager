@@ -1,0 +1,22 @@
+<div class="jumbotron">
+  <h1>Tasks Manager</h1>
+  <%= render "task" %>
+</div>
+<div class="row marketing">
+  <table>
+    <% @tasks.in_groups_of(2, false) do |row_task| %>
+      <tr>
+        <% for task in row_task %>
+          <td>
+            <div class="task-list">
+              <h4><%= task.title %></h4>
+              <p><%= task.description %></p>
+              <small><%= link_to "Edit", edit_task_path(task) %></small>
+              <small><%= link_to "Remove", task_path(task), method: :delete, data: { confirm: "Are you sure?"} %></small>
+            </div>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>
